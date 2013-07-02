@@ -1,0 +1,2 @@
+Content\sprites\shuttle.xnb
+Content\sprites\mouse.xnb

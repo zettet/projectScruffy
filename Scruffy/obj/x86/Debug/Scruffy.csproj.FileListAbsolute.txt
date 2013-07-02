@@ -1,0 +1,8 @@
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\bin\x86\Debug\Scruffy.exe
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\bin\x86\Debug\Scruffy.pdb
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\obj\x86\Debug\Scruffy.csprojResolveAssemblyReference.cache
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\obj\x86\Debug\Scruffy.exe
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\obj\x86\Debug\Scruffy.pdb
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\bin\x86\Debug\Content\sprites\shuttle.xnb
+C:\Users\KIRA\Desktop\40k\Scruffy\Scruffy\bin\x86\Debug\Content\sprites\mouse.xnb

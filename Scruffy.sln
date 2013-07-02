@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scruffy", "Scruffy\Scruffy\Scruffy.csproj", "{59720644-D562-4CF1-B8AE-D299CE6550C4}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "ScruffyContent", "Scruffy\ScruffyContent\ScruffyContent.contentproj", "{0F47E396-C728-4C41-883B-5B7B9CE452B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59720644-D562-4CF1-B8AE-D299CE6550C4}.Debug|x86.ActiveCfg = Debug|x86
+		{59720644-D562-4CF1-B8AE-D299CE6550C4}.Debug|x86.Build.0 = Debug|x86
+		{59720644-D562-4CF1-B8AE-D299CE6550C4}.Release|x86.ActiveCfg = Release|x86
+		{59720644-D562-4CF1-B8AE-D299CE6550C4}.Release|x86.Build.0 = Release|x86
+		{0F47E396-C728-4C41-883B-5B7B9CE452B9}.Debug|x86.ActiveCfg = Debug|x86
+		{0F47E396-C728-4C41-883B-5B7B9CE452B9}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
