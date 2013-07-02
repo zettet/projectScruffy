@@ -101,7 +101,7 @@ namespace Scruffy
         protected override void Draw(GameTime gameTime)
         {
             var mouseState = Mouse.GetState();
-            GraphicsDevice.Clear(Color.Blue);
+            GraphicsDevice.Clear(Color.Red);
 
             // TODO: Add your drawing code here
 
