@@ -20,11 +20,16 @@ namespace Scruffy
         private String imagePath;
         private Vector2 position;
         private Cursor cursor;
-        public Model (String image, Cursor myCursor)
+        float width;
+        float height;
+
+        public Model (String image, Cursor myCursor, float mWidth, float mHeight)
         {
             imagePath = image;
             position = new Vector2(0.0f, 0.0f);
             cursor = myCursor;
+            width = mWidth;
+            height = mHeight;
         }
 
         public void loadContent(ContentManager myContent)
@@ -39,8 +44,35 @@ namespace Scruffy
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 var mousePos = new Point(mouseState.X, mouseState.Y);
-                position.X = cursor.getPosition().X - modelSprite.Width / 2;
-                position.Y = cursor.getPosition().Y - modelSprite.Height / 2;
+                if (position.X < 0)
+                {
+                    position.X = 0;
+                    cursor.setPositionX(position.X + modelSprite.Width / 2);
+                }
+                else if ((position.X + modelSprite.Width) > width)
+                {
+                    position.X = width - modelSprite.Width;
+                    cursor.setPositionX(position.X + modelSprite.Width / 2);
+                }
+                else
+                {
+                    position.X = cursor.getPosition().X - modelSprite.Width / 2;
+                }
+
+                if (position.Y < 0)
+                {
+                    position.Y = 0;
+                    cursor.setPositionY(position.Y + modelSprite.Height / 2);
+                }
+                else if ((position.Y + modelSprite.Height) > height)
+                {
+                    position.Y = height - modelSprite.Height;
+                    cursor.setPositionY(position.Y + modelSprite.Height / 2);
+                }
+                else
+                {
+                    position.Y = cursor.getPosition().Y - modelSprite.Height / 2;
+                }    
             }
         }
 

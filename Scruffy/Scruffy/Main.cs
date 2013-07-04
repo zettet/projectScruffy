@@ -42,7 +42,7 @@ namespace Scruffy
             // TODO: Add your initialization logic here
 
             cursor = new Cursor("sprites/mouse", graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
-            ship = new Model("sprites/shuttle", cursor);
+            ship = new Model("sprites/shuttle", cursor, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
             base.Initialize();
         }
 

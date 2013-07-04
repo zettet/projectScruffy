@@ -29,6 +29,16 @@ namespace Scruffy
             return position;
         }
 
+        public void setPositionX(float x)
+        {
+            position.X = x;
+        }
+
+        public void setPositionY(float y)
+        {
+            position.Y = y;
+        }
+
         public void loadContent(ContentManager myContent)
         {
             mouseSprite = myContent.Load<Texture2D>(imagePath);
