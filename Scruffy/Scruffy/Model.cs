@@ -14,14 +14,9 @@ namespace Scruffy
     //TODO: integrate with unit class.
     //TODO: make a base class that unit and cursor inherit from?\
 
-    class Model
+    class Model : DrawObject
     {
-        private Texture2D modelSprite;
-        private String imagePath;
-        private Vector2 position;
-        private Cursor cursor;
-        float width;
-        float height;
+
 
         public Model (String image, Cursor myCursor, float mWidth, float mHeight)
         {
@@ -32,53 +27,46 @@ namespace Scruffy
             height = mHeight;
         }
 
-        public void loadContent(ContentManager myContent)
-        {
-            modelSprite = myContent.Load<Texture2D>(imagePath);
-        }
-
-        public void Update()
+        public override void Update()
         {
             //TODO: change this. This is for demo purposes only
             var mouseState = Mouse.GetState();
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
+                //TODO: Change this. It kinda ruins everything
                 var mousePos = new Point(mouseState.X, mouseState.Y);
                 if (position.X < 0)
                 {
                     position.X = 0;
-                    cursor.setPositionX(position.X + modelSprite.Width / 2);
+                    cursor.setPositionX(position.X + sprite.Width / 2);
                 }
-                else if ((position.X + modelSprite.Width) > width)
+                else if ((position.X + sprite.Width) > width)
                 {
-                    position.X = width - modelSprite.Width;
-                    cursor.setPositionX(position.X + modelSprite.Width / 2);
+                    position.X = width - sprite.Width;
+                    cursor.setPositionX(position.X + sprite.Width / 2);
                 }
                 else
                 {
-                    position.X = cursor.getPosition().X - modelSprite.Width / 2;
+                    position.X = cursor.getPosition().X - sprite.Width / 2;
                 }
 
                 if (position.Y < 0)
                 {
                     position.Y = 0;
-                    cursor.setPositionY(position.Y + modelSprite.Height / 2);
+                    cursor.setPositionY(position.Y + sprite.Height / 2);
                 }
-                else if ((position.Y + modelSprite.Height) > height)
+                else if ((position.Y + sprite.Height) > height)
                 {
-                    position.Y = height - modelSprite.Height;
-                    cursor.setPositionY(position.Y + modelSprite.Height / 2);
+                    position.Y = height - sprite.Height;
+                    cursor.setPositionY(position.Y + sprite.Height / 2);
                 }
                 else
                 {
-                    position.Y = cursor.getPosition().Y - modelSprite.Height / 2;
+                    position.Y = cursor.getPosition().Y - sprite.Height / 2;
                 }    
             }
         }
 
-        public void Draw(SpriteBatch mySpriteBatch)
-        {
-            mySpriteBatch.Draw(modelSprite, position, Color.White);
-        }
+
     }
 }

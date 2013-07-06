@@ -9,13 +9,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Scruffy
 {
-    class Cursor
+    class Cursor : DrawObject
     {
-        private Texture2D mouseSprite;
-        private String imagePath;
-        private Vector2 position;
-        private float width;
-        private float height;
         public Cursor (String image, float mWidth, float mHeight)
         {
             imagePath = image;
@@ -29,6 +24,7 @@ namespace Scruffy
             return position;
         }
 
+        //TODO: possibly remove these functions?
         public void setPositionX(float x)
         {
             position.X = x;
@@ -39,21 +35,17 @@ namespace Scruffy
             position.Y = y;
         }
 
-        public void loadContent(ContentManager myContent)
-        {
-            mouseSprite = myContent.Load<Texture2D>(imagePath);
-        }
 
-        public void Update()
+        public override void Update()
         {
             var mouseState = Mouse.GetState();
             if (mouseState.X < 0)
             {
                 position.X = 0;
             }
-            else if (mouseState.X > width - mouseSprite.Width)
+            else if (mouseState.X > width - sprite.Width)
             {
-                position.X = width - mouseSprite.Width;
+                position.X = width - sprite.Width;
             }
             else
             {
@@ -64,20 +56,14 @@ namespace Scruffy
             {
                 position.Y = 0;
             }
-            else if (mouseState.Y > height - mouseSprite.Height)
+            else if (mouseState.Y > height - sprite.Height)
             {
-                position.Y = height - mouseSprite.Height;
+                position.Y = height - sprite.Height;
             }
             else
             {
                 position.Y = mouseState.Y;
             }
         }
-
-        public void Draw(SpriteBatch mySpriteBatch)
-        {
-            mySpriteBatch.Draw(mouseSprite, position, Color.White);
-        }
-
     }
 }
