@@ -24,6 +24,7 @@ namespace Scruffy
 
         private Cursor cursor;
         private Model ship;
+        private Selection mySelection;
 
         public Main()
         {
@@ -40,9 +41,11 @@ namespace Scruffy
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            mySelection = Selection.Instance;
             cursor = new Cursor("sprites/mouse", graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
-            ship = new Model("sprites/shuttle", cursor, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
+            ship = new Model("sprites/shuttle", cursor);
+            mySelection.setSelection(ship);
+            mySelection.setScreenDimensions(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
             base.Initialize();
         }
 
@@ -87,7 +90,7 @@ namespace Scruffy
 
             //TODO: remove this. This is only for demo purposes
             cursor.Update();
-            ship.Update();
+            mySelection.Update();
            
 
 
@@ -107,7 +110,7 @@ namespace Scruffy
 
             //TODO: remove this. This is only for demo purposes
             spriteBatch.Begin();
-            ship.Draw(spriteBatch);
+            mySelection.Draw(spriteBatch);
             cursor.Draw(spriteBatch);
             spriteBatch.End();
 

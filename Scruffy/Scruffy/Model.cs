@@ -17,14 +17,12 @@ namespace Scruffy
     class Model : DrawObject
     {
 
-
-        public Model (String image, Cursor myCursor, float mWidth, float mHeight)
+        private Cursor cursor;
+        public Model (String image, Cursor myCursor)
         {
             imagePath = image;
             position = new Vector2(0.0f, 0.0f);
             cursor = myCursor;
-            width = mWidth;
-            height = mHeight;
         }
 
         public override void Update()
@@ -35,35 +33,10 @@ namespace Scruffy
             {
                 //TODO: Change this. It kinda ruins everything
                 var mousePos = new Point(mouseState.X, mouseState.Y);
-                if (position.X < 0)
-                {
-                    position.X = 0;
-                    cursor.setPositionX(position.X + sprite.Width / 2);
-                }
-                else if ((position.X + sprite.Width) > width)
-                {
-                    position.X = width - sprite.Width;
-                    cursor.setPositionX(position.X + sprite.Width / 2);
-                }
-                else
-                {
-                    position.X = cursor.getPosition().X - sprite.Width / 2;
-                }
+                position.X = mouseState.X;
+                position.Y = mouseState.Y;
 
-                if (position.Y < 0)
-                {
-                    position.Y = 0;
-                    cursor.setPositionY(position.Y + sprite.Height / 2);
-                }
-                else if ((position.Y + sprite.Height) > height)
-                {
-                    position.Y = height - sprite.Height;
-                    cursor.setPositionY(position.Y + sprite.Height / 2);
-                }
-                else
-                {
-                    position.Y = cursor.getPosition().Y - sprite.Height / 2;
-                }    
+               
             }
         }
 

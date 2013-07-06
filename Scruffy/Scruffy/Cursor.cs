@@ -19,10 +19,10 @@ namespace Scruffy
             height = mHeight;
         }
 
-        public Vector2 getPosition()
-        {
-            return position;
-        }
+        //TODO: create capability to drag a rectangle on screen.
+
+        //TODO: handle logic for updating a new selection. If a model is clicked on, it should become the selection.
+        //      if an area is dragged, then a unit should be created based on models that the area touches.
 
         //TODO: possibly remove these functions?
         public void setPositionX(float x)

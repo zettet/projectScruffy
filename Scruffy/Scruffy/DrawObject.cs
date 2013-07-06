@@ -10,14 +10,28 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Scruffy
 {
-    abstract class DrawObject
+    public abstract class DrawObject
     {
         protected Texture2D sprite;
         protected String imagePath;
         protected Vector2 position;
-        protected Cursor cursor;
         protected float width;
         protected float height;
+
+        public Vector2 getPosition()
+        {
+            return position;
+        }
+
+        public float getSpriteWidth()
+        {
+            return sprite.Width;
+        }
+
+        public float getSpriteHeight()
+        {
+            return sprite.Height;
+        }
 
         public void loadContent(ContentManager myContent)
         {
