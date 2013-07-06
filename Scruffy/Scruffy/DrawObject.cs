@@ -39,6 +39,7 @@ namespace Scruffy
         }
 
         public abstract void Update();
+        public abstract void Update(Vector2 newPos);
         
         public void Draw(SpriteBatch mySpriteBatch)
         {

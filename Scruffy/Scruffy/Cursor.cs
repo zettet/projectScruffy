@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Scruffy
 {
-    class Cursor : DrawObject
+    public class Cursor : DrawObject
     {
         public Cursor (String image, float mWidth, float mHeight)
         {
@@ -35,6 +35,11 @@ namespace Scruffy
             position.Y = y;
         }
 
+        public Boolean isLeftClick()
+        {
+            var mouseState = Mouse.GetState();
+            return mouseState.LeftButton == ButtonState.Pressed;
+        }
 
         public override void Update()
         {
@@ -64,6 +69,11 @@ namespace Scruffy
             {
                 position.Y = mouseState.Y;
             }
+        }
+
+        public override void Update(Vector2 newPos)
+        {
+            throw new NotImplementedException();
         }
     }
 }

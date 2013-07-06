@@ -16,30 +16,23 @@ namespace Scruffy
 
     class Model : DrawObject
     {
-
-        private Cursor cursor;
-        public Model (String image, Cursor myCursor)
+        
+        public Model (String image)
         {
             imagePath = image;
             position = new Vector2(0.0f, 0.0f);
-            cursor = myCursor;
         }
 
         public override void Update()
         {
-            //TODO: change this. This is for demo purposes only
-            var mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed)
-            {
-                //TODO: Change this. It kinda ruins everything
-                var mousePos = new Point(mouseState.X, mouseState.Y);
-                position.X = mouseState.X;
-                position.Y = mouseState.Y;
-
-               
-            }
+            throw new NotImplementedException();
         }
 
-
+        public override void Update(Vector2 pos)
+        {
+            //TODO: change this. This is for demo purposes only
+            position.X = pos.X;
+            position.Y = pos.Y; 
+        }
     }
 }

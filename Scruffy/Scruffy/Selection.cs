@@ -17,6 +17,9 @@ namespace Scruffy
         private DrawObject selectedObject;
         private float width;
         private float height;
+        private Cursor cursor;
+
+
         private Selection(){}
 
         public void setScreenDimensions(float mWidth, float mHeight)
@@ -31,17 +34,31 @@ namespace Scruffy
             selectedObject = newSelection;
         }
 
+        public void setCursor(Cursor myCursor)
+        {
+            cursor = myCursor;
+        }
 
         //handle logic for selected objects
         //TODO: Fix case where DrawObject stops updating if it goes offscreen
         public void Update()
         {
-            if ((selectedObject.getPosition().X >= 0) && (selectedObject.getPosition().Y >= 0) &&
-                 (selectedObject.getPosition().X + selectedObject.getSpriteWidth() < width) &&
-                 (selectedObject.getPosition().Y + selectedObject.getSpriteHeight() < height))
-            {
+            Vector2 newPos = new Vector2();
+            float spriteWidth = selectedObject.getSpriteWidth()/2;
+            float spriteHeight = selectedObject.getSpriteHeight() / 2;
 
-                selectedObject.Update();
+            if (cursor.getPosition().X >= spriteWidth && cursor.getPosition().X <= width - spriteWidth &&
+                cursor.getPosition().Y >= spriteHeight && cursor.getPosition().Y <= height - spriteHeight)
+            {
+                if (cursor.isLeftClick())
+                {
+                    newPos = new Vector2(cursor.getPosition().X - spriteWidth/2, cursor.getPosition().Y-spriteHeight/2);
+                }
+                else
+                {
+                    newPos = selectedObject.getPosition();
+                }
+                selectedObject.Update(newPos);
             }
         }
 
