@@ -48,18 +48,26 @@ namespace Scruffy
             float spriteHeight = selectedObject.getSpriteHeight() / 2;
 
             if (cursor.getPosition().X >= spriteWidth && cursor.getPosition().X <= width - spriteWidth &&
-                cursor.getPosition().Y >= spriteHeight && cursor.getPosition().Y <= height - spriteHeight)
+                cursor.isLeftClick())
             {
-                if (cursor.isLeftClick())
-                {
-                    newPos = new Vector2(cursor.getPosition().X - spriteWidth/2, cursor.getPosition().Y-spriteHeight/2);
-                }
-                else
-                {
-                    newPos = selectedObject.getPosition();
-                }
-                selectedObject.Update(newPos);
+                newPos.X = cursor.getPosition().X - spriteWidth;   
             }
+            else
+            {
+                newPos.X = selectedObject.getPosition().X;
+            }
+               
+            if (cursor.getPosition().Y >= spriteHeight && cursor.getPosition().Y <= height - spriteHeight &&
+                cursor.isLeftClick())
+            {
+                newPos.Y = cursor.getPosition().Y - spriteHeight;
+            }
+            else
+            {
+                newPos = selectedObject.getPosition();
+            }
+                
+            selectedObject.Update(newPos);
         }
 
         public void Draw(SpriteBatch mySpriteBatch)
